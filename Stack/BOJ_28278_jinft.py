@@ -14,21 +14,21 @@ n = int(input())
 stack = []
 for _ in range(n):
     cmd = list(map(int, input().split()))
-    if cmd[0] == 1:
+    if cmd[0] == 1: # push
         stack.append(cmd[1])
-    elif cmd[0] == 2:
+    elif cmd[0] == 2: # pop
         if stack:
             print(stack.pop())
         else:
             print(-1)
-    elif cmd[0] == 3:
+    elif cmd[0] == 3: # size
         print(len(stack))
-    elif cmd[0] == 4:
+    elif cmd[0] == 4: # empty
         if len(stack) == 0:
             print(1)
         else:
             print(0)
-    elif cmd[0] == 5:
+    elif cmd[0] == 5: # top
         if stack:
             print(stack[-1])
         else:
