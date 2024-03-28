@@ -1,0 +1,49 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int[] arr = new int[n + 1];
+
+        // arr[i] 가 i랑 같으면 answer++
+        for (int i = 0; i <= n; i++) {
+            arr[i] = i;
+        }
+        for (int i = 0; i < m; i++) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+            int tmp = 0;
+
+            for (int j = a; j <= b; j++) {
+                if (arr[j] != j) {
+                    tmp = arr[j];
+                }
+                if (tmp != 0) {
+                    arr[j] = tmp;
+                } else {
+                    arr[j] = a; // 핵심
+                }
+            }
+
+        }
+        int answer = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (arr[i] == i) {
+                answer++;
+            }
+        }
+        System.out.println(answer);
+
+
+    }
+
+}
